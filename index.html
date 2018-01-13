@@ -8,14 +8,29 @@
 <h1>Rxjs</h1>
 
 <script>
-    let tab = [1, 2, 3, 4, 5, 6];
-    tab.push(6);
 
-    tab = [1, 2, 3, 4, 5, 6];
+    const tab = [1, 2, 3, 4, 5];
 
-    //1. var - zasięg funkcyjny, można redeklarować, jest hoistingowany
-    //2. let/const - zasięg blokowy, nie hoistingowane, nie można redeklarować
-    //3. typy złożone są przekazywane przez referencję, np. array, object
+    //odwracanie
+    //const tab2 = tab.reverse();
+
+    //stwórz tablicę [10,20,30,40,50]
+    //funckja map pozwala mapować dowolną tablice na nową
+    const tab3 = tab.map(function (element, index, tab) {
+        return element * 10;
+    })
+
+    //(paramaters) => { ciało funkcji}
+    //parameter => { ciało funkcji }
+    const tab4 = tab.map((element, index) => {
+        return element * 10;
+    });
+
+    //parameters => true;
+    const tab5 = tab.map(element => element * 10);
+    const tab6 = tab.map(e => e * 10);
+
+    // () => true;
 
 </script>
 
