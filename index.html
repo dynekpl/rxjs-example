@@ -9,39 +9,82 @@
 
 <script>
 
-    const tab = [1, 2, 3, 4, 5];
+    const t = [[1, 2, 3], [1, 2, 3], [1, 2, 3]];
 
-    //odwracanie
-    //const tab2 = tab.reverse();
+    //Odwrócenie wewnętrznych tablic
+    const t2 = t.map(e => e.reverse());
 
-    //stwórz tablicę [10,20,30,40,50]
-    //funckja map pozwala mapować dowolną tablice na nową
-    const tab3 = tab.map(function (element, index, tab) {
-        return element * 10;
-    })
+    const t3 = t.map(e => e.reverse().join('-')).join('-');
 
-    //(paramaters) => { ciało funkcji}
-    //parameter => { ciało funkcji }
-    const tab4 = tab.map((element, index) => {
-        return element * 10;
-    });
+    const t4 = [
+        {name: 'Pawel', age: 32},
+        {name: 'Karol', age: 17},
+        {name: 'Tomek', age: 67},
+        {name: 'Kasia', age: 12},
+        {name: 'Ania', age: 4},
+        {name: 'Roman', age: 2},
+    ]
 
-    //parameters => true;
-    const tab5 = tab.map(element => element * 10);
-    const tab6 = tab.map(e => e * 10);
+    //Tablica dorosłych
+    const t5 = t4.filter(e => e.age >= 18);
 
-    // () => true;
+    //Tablica z imionami dzieci
+    const t6 = t4.filter(e => e.age < 18).map(e => e.name);
 
-    //Jeśli chcemy zredukowac tablice do jednego elementu używamy reducera, np. do zsumowania elementów
-    const tab7 = tab.reduce((accumulator, currentValue) => accumulator + currentValue);
+    const t7 = [
+        {
+            name: 'Pawel', age: 32, favorites: [
+                'rybki', 'programowanie', 'alkohol'
+            ]
+        },
+        {
+            name: 'Karol', age: 17, favorites: [
+                'matematyka', 'grzybki', 'alkohol'
+            ]
+        },
+        {
+            name: 'Tomek', age: 67, favorites: [
+                'filmy', 'napady', 'narkotyki'
+            ]
+        },
+        {
+            name: 'Kasia', age: 12, favorites: [
+                'koty', 'gry', 'alkohol'
+            ]
+        },
+        {
+            name: 'Ania', age: 4, favorites: [
+                'rybki', 'koty', 'wolnomularstwo'
+            ]
+        },
+        {
+            name: 'Roman', age: 2, favorites: [
+                'roboty', 'niespanie', 'prace'
+            ]
+        },
+    ];
 
-    //Nowa tablica  z elementami większymi od 3
-    const tab8 = tab.filter(element => element > 3);
+    // Tablica imion ludzi, któzy piją alkohol
+    // Algorytm
+    // 1. Iterowanie po wszystkich obiektach map()
+    // 2. Wejść do favorites (czyli sprawdzić, który element jest tablicą)
+    // 3. Przefiltrować tablicę w poszukiwaniu alkoholu
+    // 4. Jeżeli zawiera to zwrócić imię z obiektu
 
-    //Nowa tablica z elementami od największego do najmniejszego bez reverse
-    // jeśli wynik ujemny to zamienia kolejność, a jak dodatni to nie
-    //const tab9 = tab.sort((e1,e2) => e2 - e1);
-    const tab9 = tab.sort((e1, e2) => e2 > e1 ? 1 : -1);
+    const t8 = t7.map(e => {
+        let temp = e.favorites.filter(e => e === 'alkohol');
+        return temp.length > 0 ? e.name : -1;
+    }).filter(e => e !== -1);
+
+    //Tablica wszystkich niepełnoletnich, którzy lubią rybki
+    //TODO
+
+    //Średnia z miliona liczb
+    const t10 = [];
+    for(i=0; i< 1000000; i++){
+        t10.push(Math.random(i));
+    }
+    const t11 = t10.reduce((e1,e2) => e1 + e2)/t10.length;
 
 </script>
 
