@@ -8,8 +8,14 @@
 <h1>Rxjs</h1>
 
 <script>
-    // Aby sprawdzić funckje jakie mogę wykonać na tablicy wystarczy sprawdzić własność __proto__ używając Dev Tools w przeglądarce, np. tab.__proto__
-const tab = [1,2,4];
+    let tab = [1, 2, 3, 4, 5, 6];
+    tab.push(6);
+
+    tab = [1, 2, 3, 4, 5, 6];
+
+    //1. var - zasięg funkcyjny, można redeklarować, jest hoistingowany
+    //2. let/const - zasięg blokowy, nie hoistingowane, nie można redeklarować
+    //3. typy złożone są przekazywane przez referencję, np. array, object
 
 </script>
 
