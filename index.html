@@ -37,7 +37,12 @@
 
     //Nowa tablica  z elementami większymi od 3
     const tab8 = tab.filter(element => element > 3);
-    
+
+    //Nowa tablica z elementami od największego do najmniejszego bez reverse
+    // jeśli wynik ujemny to zamienia kolejność, a jak dodatni to nie
+    //const tab9 = tab.sort((e1,e2) => e2 - e1);
+    const tab9 = tab.sort((e1, e2) => e2 > e1 ? 1 : -1);
+
 </script>
 
 </body>
