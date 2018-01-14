@@ -24,7 +24,14 @@ function load(url: string) {
         })
         xhr.open("GET", url);
         xhr.send();
-    }).map((e) => e.sort((a,b) => a.pages - b.pages));
+    }).retryWhen((errors, limit = 5, delay = 1000) => {
+        return errors
+            .takeWhile((e, i) => {
+                console.log(i);
+                return i < limit; //ogranicza ilość prób
+            })
+            .delay(delay); //co ile ponawiamy próbę
+    })
 }
 
 function renderBooks(books) {
@@ -41,7 +48,7 @@ function renderBooks(books) {
 //}
 
 //poniższa linijka łączy dwa streamy z różnych obserwatorów
-click.flatMap(e => load("/books-api.json"))
+click.flatMap(e => load("/books-api1.json"))
     .subscribe(
         (e) => renderBooks(e),
         (e) => console.log(`error ${e}`),
