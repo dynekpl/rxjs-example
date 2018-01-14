@@ -1,15 +1,15 @@
 module.exports = {
     entry: "./main",
-    output: { filename: "app.js" },
+    output: {
+        filename: "app.js"
+    },
+    devtool: "inline-source-map",
     module: {
-        loaders: [
-            {
-                test: /.ts$/,
-                loader: "ts-loader"
-            }
+        rules: [
+            { test: /\.tsx?$/, loader: 'ts-loader' }
         ]
     },
     resolve: {
-        extensions: ["", ".ts", ".js"]
+        extensions: ["tsx", ".ts", ".js"]
     }
 }
