@@ -18,7 +18,7 @@ let source = Observable.create(observer => {
 
     produceValue();
 
-})
+}).map(e => e * 3).map(e => e > 18 ? `pełnoletni ${e} lat` : `niepełnoletni ${e} lat`);
 
 
 source.subscribe(
